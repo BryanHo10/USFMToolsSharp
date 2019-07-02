@@ -36,27 +36,31 @@ namespace USFMToolsSharp
             UnrenderableTags = new List<string>();
             var encoding = GetEncoding(input);
             StringBuilder output = new StringBuilder();
-            output.AppendLine("<html>");
 
-            if (InsertedHead == null)
+            if (!ConfigurationHTML.partialHTML)
             {
-                output.AppendLine("<head>");
-                if (!string.IsNullOrEmpty(encoding))
+                output.AppendLine("<html>");
+
+                if (InsertedHead == null)
                 {
-                    output.Append($"<meta charset=\"{encoding}\">");
+                    output.AppendLine("<head>");
+                    if (!string.IsNullOrEmpty(encoding))
+                    {
+                        output.Append($"<meta charset=\"{encoding}\">");
+                    }
+                    output.AppendLine("<link rel=\"stylesheet\" href=\"style.css\">");
+
+                    output.AppendLine("</head>");
                 }
-                output.AppendLine("<link rel=\"stylesheet\" href=\"style.css\">");
+                else
+                {
+                    output.AppendLine(InsertedHead);
+                }
 
-                output.AppendLine("</head>");
+                output.AppendLine("<body>");
+
+                output.AppendLine(FrontMatterHTML);
             }
-            else
-            {
-                output.AppendLine(InsertedHead);
-            }
-
-            output.AppendLine("<body>");
-
-            output.AppendLine(FrontMatterHTML);
 
             // HTML tags can only have one class, when render to docx
 
@@ -65,24 +69,34 @@ namespace USFMToolsSharp
                 output.AppendLine($"<div class=\"{class_name}\">");
             }
 
-            
-
             foreach (Marker marker in input.Contents)
             {
                 output.Append(RenderMarker(marker));
             }
 
+<<<<<<< HEAD
             
             
 
+=======
+>>>>>>> simplified HTMLRender unit test class
             foreach (string class_name in ConfigurationHTML.divClasses)
             {
                 output.AppendLine($"</div>");
             }
+<<<<<<< HEAD
             output.AppendLine(InsertedFooter);
 
             output.AppendLine("</body>");
             output.AppendLine("</html>");
+=======
+
+            if (!ConfigurationHTML.partialHTML)
+            {
+                output.AppendLine("</body>");
+                output.AppendLine("</html>");
+            }
+>>>>>>> simplified HTMLRender unit test class
             return output.ToString();
         }
 
