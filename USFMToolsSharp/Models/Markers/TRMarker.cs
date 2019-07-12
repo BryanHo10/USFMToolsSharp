@@ -9,7 +9,6 @@ namespace USFMToolsSharp.Models.Markers
     /// </summary>
     public class TRMarker : Marker
     {
-<<<<<<< HEAD
         public override string Identifier => "tr";
 
         public override List<Type> AllowedContents => new List<Type>() {
@@ -17,15 +16,6 @@ namespace USFMToolsSharp.Models.Markers
             typeof(THMarker),
             typeof(TCRMarker),
             typeof(THRMarker)
-=======
-        public override string Identifier => "tr";
-
-        public override List<Type> AllowedContents => new List<Type>() {
-            typeof(TCMarker),
-            typeof(THMarker),
-            typeof(TCRMarker),
-            typeof(THRMarker)
->>>>>>> Update Table Row 'Allowed Contents
         };
     }
 }

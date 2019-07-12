@@ -36,10 +36,14 @@ namespace USFMToolsSharp.Models.Markers
             typeof(QMarker),
             typeof(NBMarker),
             typeof(RMarker),
+<<<<<<< HEAD
             typeof(LIMarker),
             typeof(TableBlock),
             typeof(MIMarker),
             typeof(PIMarker)
+=======
+            typeof(TRMarker)
+>>>>>>> Update CMarker's AllowedContents
         };
     }
 }
