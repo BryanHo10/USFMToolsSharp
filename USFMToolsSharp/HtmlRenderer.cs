@@ -73,30 +73,17 @@ namespace USFMToolsSharp
             {
                 output.Append(RenderMarker(marker));
             }
-
-<<<<<<< HEAD
-            
-            
-
-=======
->>>>>>> simplified HTMLRender unit test class
             foreach (string class_name in ConfigurationHTML.divClasses)
             {
                 output.AppendLine($"</div>");
             }
-<<<<<<< HEAD
-            output.AppendLine(InsertedFooter);
-
-            output.AppendLine("</body>");
-            output.AppendLine("</html>");
-=======
 
             if (!ConfigurationHTML.partialHTML)
             {
+                output.AppendLine(InsertedFooter);
                 output.AppendLine("</body>");
                 output.AppendLine("</html>");
             }
->>>>>>> simplified HTMLRender unit test class
             return output.ToString();
         }
 
